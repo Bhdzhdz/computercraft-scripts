@@ -1,6 +1,6 @@
-local speed_controler = peripheral.wrap("left")
-local speedometer = peripheral.wrap("bottom")
-local accumulator = peripheral.wrap("back")
+local speedControler = peripheral.wrap("left");
+local speedometer = peripheral.wrap("bottom");
+local accumulator = peripheral.wrap("back");
 
 
 while true do
@@ -15,7 +15,7 @@ while true do
     targetSpeed = speedometer.getKineticTopSpeed("left");
   end
 
-  speed_controler.setTargetSpeed("back", targetSpeed);
+  speedControler.setTargetSpeed("back", targetSpeed);
 
   print("Speed set to " .. targetSpeed);
 
