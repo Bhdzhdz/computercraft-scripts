@@ -4,12 +4,19 @@ local accumulator = peripheral.wrap("back")
 
 
 while true do
-  if accumulator.getPercent() >= 100 then
-    speed_controler.setTargetSpeed("back", 0)
+  local accumulatorPercent = accumulator.getPercent()
+
+  print("Accumulator: " .. accumulatorPercent)
+
+
+  local targetSpeed = 0;
+  if accumulatorPercent < 100 then
+    targetSpeed = speedometer.getKineticTopSpeed("left")
   else
-    local topSpeed = speedometer.getKineticTopSpeed("left")
-    speed_controler.setTargetSpeed("back", topSpeed)
+
   end
+  speed_controler.setTargetSpeed("back", 0)
+  print("Speed set to " .. targetSpeed)
 
   sleep(10)
 end
