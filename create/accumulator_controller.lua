@@ -6,12 +6,13 @@ local accumulator = peripheral.wrap("back")
 while true do
   local accumulatorPercent = accumulator.getPercent();
 
-  print("Accumulator: " .. accumulatorPercent);
-
+  print("Accumulator: " .. accumulatorPercent .. "%");
+  print("Speedometer: " .. speedometer.getKineticSpeed("bottom") .. "rpm");
 
   local targetSpeed = 0;
+
   if accumulatorPercent < 100 then
-    targetSpeed = speedometer.getKineticTopSpeed("left");
+    targetSpeed = speedometer.getKineticTopSpeed("bottom");
   end
 
   speed_controler.setTargetSpeed("back", targetSpeed);
