@@ -12,8 +12,6 @@ while true do
   local targetSpeed = 0;
   if accumulatorPercent < 100 then
     targetSpeed = speedometer.getKineticTopSpeed("left")
-  else
-
   end
   speed_controler.setTargetSpeed("back", 0)
   print("Speed set to " .. targetSpeed)
