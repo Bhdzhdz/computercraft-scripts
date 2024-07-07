@@ -1,6 +1,6 @@
 local speed_controler = peripheral.wrap("left")
 local speedometer = peripheral.wrap("left")
-local accumulator = peripheral.wrap("right")
+local accumulator = peripheral.wrap("back")
 
 
 while true do
