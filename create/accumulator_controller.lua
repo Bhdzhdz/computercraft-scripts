@@ -14,7 +14,11 @@ while true do
     targetSpeed = speedometer.getKineticTopSpeed("left");
   end
 
-  speed_controler.setTargetSpeed("back", 0);
+  speed_controler.setTargetSpeed("back", targetSpeed);
+  speed_controler.setTargetSpeed("left", targetSpeed);
+  speed_controler.setTargetSpeed("right", targetSpeed);
+  speed_controler.setTargetSpeed("front", targetSpeed);
+
   print("Speed set to " .. targetSpeed);
 
   sleep(10)
