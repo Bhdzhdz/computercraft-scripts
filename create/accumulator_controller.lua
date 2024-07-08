@@ -22,6 +22,9 @@ while true do
 
     if maxSpeed > 256 then
       targetSpeed = 256;
+    elseif maxSpeed < 30 then
+      print("There are not enough SU to power the Alternator")
+      targetSpeed = 0;
     else
       targetSpeed = maxSpeed;
     end
@@ -31,5 +34,5 @@ while true do
 
   print("Speed set to " .. targetSpeed);
 
-  sleep(10);
+  sleep(30);
 end
