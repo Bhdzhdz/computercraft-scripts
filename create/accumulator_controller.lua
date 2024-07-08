@@ -20,13 +20,12 @@ while true do
 
     local maxSpeed = currentSpeed + (capacity - stress) / 64;
 
-    if maxSpeed > 256 then
+    targetSpeed = maxSpeed * (1 - (accumulatorPercent / 300));
+    if targetSpeed > 256 then
       targetSpeed = 256;
-    elseif maxSpeed < 30 or capacity == 0 then
+    elseif targetSpeed < 30 or capacity == 0 then
       print("There are not enough SU to power the Alternator")
       targetSpeed = 0;
-    else
-      targetSpeed = maxSpeed;
     end
   end
 
