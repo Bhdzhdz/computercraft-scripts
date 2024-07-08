@@ -22,7 +22,7 @@ while true do
 
     if maxSpeed > 256 then
       targetSpeed = 256;
-    elseif maxSpeed < 30 then
+    elseif maxSpeed < 30 or capacity == 0 then
       print("There are not enough SU to power the Alternator")
       targetSpeed = 0;
     else
