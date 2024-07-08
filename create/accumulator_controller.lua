@@ -1,5 +1,5 @@
 local speedController = peripheral.wrap("back");
-local stressometer = peripheral.wrap("top");
+local stressometer = peripheral.wrap("bottom");
 local accumulator = peripheral.wrap("right");
 
 
