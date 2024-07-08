@@ -1,5 +1,5 @@
-local speedControler = peripheral.wrap("back");
-local speedometer = peripheral.wrap("top");
+local speedController = peripheral.wrap("back");
+local stressometer = peripheral.wrap("top");
 local accumulator = peripheral.wrap("right");
 
 
@@ -7,17 +7,29 @@ while true do
   local accumulatorPercent = accumulator.getPercent();
 
   print("Accumulator: " .. accumulatorPercent .. "%");
-  print("Speedometer: " .. speedometer.getTargetSpeed() .. "rpm");
 
   local targetSpeed = 0;
 
   if accumulatorPercent < 100 then
-    targetSpeed = speedometer.getTargetSpeed();
+    local stress = stressometer.getStress();
+    local capacity = stressometer.getStressCapacity();
+    local currentSpeed = speedController.getTargetSpeed();
+
+    print("Stress: " .. stress);
+    print("Capacity: " .. capacity);
+
+    local maxSpeed = currentSpeed + (capacity - stress) / 64;
+
+    if maxSpeed > 256 then
+      targetSpeed = 256;
+    else
+      targetSpeed = maxSpeed;
+    end
   end
 
-  speedControler.setTargetSpeed(targetSpeed);
+  speedController.setTargetSpeed(targetSpeed);
 
   print("Speed set to " .. targetSpeed);
 
-  sleep(10)
+  sleep(10);
 end
